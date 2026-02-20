@@ -4,7 +4,7 @@ A collection of skills for skill4agent.
 
 ## What is skill4agent?
 
-skill4agent is a platform that collects curated skills, designed specifically for Chinese users. We provide Chinese translations of skills and perform script security checks.
+[skill4agent.com](https://www.skill4agent.com) is a platform that collects curated skills, designed specifically for Chinese users. We provide Chinese translations of skills and perform script security checks.
 
 [![skill4agent website](https://raw.githubusercontent.com/osulivan/skill4agent-cli/main/assets/skill4agent_en.png)](https://www.skill4agent.com)
 
@@ -16,7 +16,7 @@ This is the official skill repository for skill4agent. Currently, it includes th
 
 It supports searching skills in Chinese, making it more user-friendly for Chinese users.
 
-### What pain points does search-install-skill-zh solve?
+## What pain points does search-install-skill-zh solve?
 
 When Chinese users ask AI to search for skills, AI typically uses Chinese keywords since the conversation is in Chinese. However, most skills are in English, making it hard to find results with Chinese searches. This skill solves this problem:
 
