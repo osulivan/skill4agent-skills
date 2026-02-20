@@ -16,6 +16,14 @@ This is the official skill repository for skill4agent. Currently, it includes th
 
 It supports searching skills in Chinese, making it more user-friendly for Chinese users.
 
+### What pain points does search-install-skill-zh solve?
+
+When Chinese users ask AI to search for skills, AI typically uses Chinese keywords since the conversation is in Chinese. However, most skills are in English, making it hard to find results with Chinese searches. This skill solves this problem:
+
+1. **Chinese search support:** The skill4agent platform provides Chinese translations for English skills, enabling searches using Chinese keywords
+2. **Script security checks:** The skill4agent platform performs security checks on scripts within skills and records the specific locations of sensitive code
+3. **Security recheck:** This skill guides AI to recheck sensitive code, improving the safety of skill usage
+
 ## What are Skills?
 
 In the simplest analogy:
