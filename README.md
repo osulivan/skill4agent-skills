@@ -1,25 +1,25 @@
 # skill4agent-skills
 
-A collection of skills for skill4agent.
+skill4agent 的技能集合。
 
-## What is skill4agent?
+## 什么是 skill4agent？
 
-skill4agent is a platform that collects curated skills, designed specifically for Chinese users. We provide Chinese translations of skills and perform script security checks.
+skill4agent 是一个收集精选技能的平台，专为中文用户设计。我们提供技能的中文翻译，并进行脚本安全检查。
 
-[![skill4agent website](https://raw.githubusercontent.com/osulivan/skill4agent-cli/main/assets/skill4agent_en.png)](https://www.skill4agent.com)
+[![skill4agent 网站首页](https://raw.githubusercontent.com/osulivan/skill4agent-cli/main/assets/skill4agent_zh.png)](https://www.skill4agent.com)
 
-## What is this repository?
+## 这个仓库是什么？
 
-This is the official skill repository for skill4agent. Currently, it includes the `search-install-skill-zh` skill, which provides two ways to search and install skills:
-- npx command (requires Node.js)
-- API call (no Node.js required)
+这是 skill4agent 的官方技能仓库。目前包含 `search-install-skill-zh` 技能，提供两种搜索和安装技能的方式：
+- npx 命令（需要 Node.js）
+- API 调用（无需 Node.js）
 
-It supports searching skills in Chinese, making it more user-friendly for Chinese users.
+支持使用中文搜索技能，对中文用户更加友好。
 
-## What are Skills?
+## 什么是技能？
 
-Skills are modular packages that extend AI capabilities with specialized knowledge, workflows, and tool integrations.
+技能是模块化包，通过专业知识、工作流和工具集成来扩展 AI 的能力。
 
-## License
+## 许可证
 
 MIT
