@@ -6,6 +6,8 @@ skill4agent 的技能集合。
 
 skill4agent 是一个收集精选技能的平台，专为中文用户设计。我们提供技能的中文翻译，并进行脚本安全检查。
 
+[![skill4agent 网站首页](https://raw.githubusercontent.com/osulivan/skill4agent-cli/main/assets/skill4agent_zh.png)](https://www.skill4agent.com)
+
 ## 这个仓库是什么？
 
 这是 skill4agent 的官方技能仓库。目前包含 `search-install-skill-zh` 技能，提供两种搜索和安装技能的方式：
