@@ -24,6 +24,8 @@ When Chinese users ask AI to search for skills, AI typically uses Chinese keywor
 2. **Script security checks:** The skill4agent platform performs security checks on scripts within skills and records the specific locations of sensitive code
 3. **Security recheck:** This skill guides AI to recheck sensitive code, improving the safety of skill usage
 
+If you want your Agent to **search skill → filter skill → install skill → check script security**, fully autonomous execution, then this skill is for you.
+
 ## What are Skills?
 
 In the simplest analogy:
