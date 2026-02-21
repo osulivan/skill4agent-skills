@@ -11,7 +11,7 @@ description: 当需要搜索、查阅和安装在线技能库中的 skills 时�
 ### 1. 搜索技能（search）
 **用途**：查找相关技能，支持中文、英文或中英混合关键词
 
-#### CLI 命令（推荐，需要Node.js环境）
+#### CLI 命令（需要Node.js环境）
 ```bash
 # 基础搜索（建议使用-j，返回JSON格式）
 npx skill4agent search <关键词> -j
@@ -44,7 +44,7 @@ https://skill4agent.com/api/search?keyword=<关键词>
 ### 2. 查阅技能（read）
 **用途**：查看技能的详细信息和完整内容
 
-#### CLI 命令（推荐，需要Node.js环境）
+#### CLI 命令（需要Node.js环境）
 ```bash
 # 查阅原版内容（建议使用-j，返回JSON格式）
 npx skill4agent read <source> <skill_name> -j
@@ -75,7 +75,7 @@ https://skill4agent.com/api/skills/info?source=<source>&skill_name=<skill_name>
 ### 3. 安装技能（install）
 **用途**：将技能安装到本地项目
 
-#### CLI 命令（推荐，需要Node.js环境）
+#### CLI 命令（需要Node.js环境）
 ```bash
 # 安装原版技能
 npx skill4agent install <source> <skill_name>
@@ -99,12 +99,15 @@ https://skill4agent.com/api/download/<skillId>?type=<type>
 - 如需把skill安装到其他路径（如用户指定的或所在应用要求的路径），则自行转移到目标目录
 
 ## 脚本安全检查
-对于包含脚本的技能：
+通过返回的 `script` 字段，了解技能是否包含脚本并是否存在敏感代码。
+
 - `has_script`：`true` 表示包含脚本
 - `script_check_result`：
   - `safe`：脚本安全
   - `need attention`：存在敏感代码
 - `script_check_notes`：敏感代码的具体位置，安装后需复检
+
+注：对于包含脚本并存在敏感代码的技能，安装后需对script_check_notes中列出的敏感代码进行复检，确保安全
 
 ## 场景化工作流
 
@@ -133,7 +136,5 @@ https://skill4agent.com/api/download/<skillId>?type=<type>
    - 中文搜不到 → 尝试英文或中英混合
 
 ## 最佳实践
-- **JSON 格式**：搜索和查阅命令建议添加 `-j` 参数，方便解析
-- **关键词选择**：使用具体且相关的关键词提高搜索准确性
-- **脚本检查**：对于 `script_check_result` 为 `need attention` 的技能，安装后需检查敏感代码（script_check_notes中列出的位置）
+- **JSON 格式**：搜索和查阅命令应该添加 `-j` 参数以返回json格式，方便解析
 - **语言版本选择**：根据用户的常用语言选择合适的版本（通过translation字段了解原版和翻译版的语言）
