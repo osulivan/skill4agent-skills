@@ -1,140 +1,132 @@
 ---
 name: search-read-install-skill-zh
-description: 当需要搜索、查阅和安装在线技能库中的 skills 时使用此技能。
+description: Use this skill when you need to search, read, and install skills from the online skill library.
 ---
 
-## 技能目的
-使用CLI命令或API接口，实现搜索技能、查阅技能详情、安装技能的完整工作流。
+## Skill Purpose
+Help AI learn to use skill4agent CLI commands or API interfaces to implement a complete workflow of searching skills, reading skill details, and installing skills.
 
-## 三种核心操作
+## Three Core Operations
 
-### 1. 搜索技能（search）
-**用途**：查找相关技能，支持中文、英文或中英混合关键词
+### 1. Search Skills (search)
+**Purpose**: Find relevant skills, support Chinese, English, or mixed keywords
 
-#### CLI 命令（需要Node.js环境）
+#### CLI Command (Recommended)
 ```bash
-# 基础搜索（建议使用-j，返回JSON格式）
-npx skill4agent search <关键词> -j
+# Basic search (JSON format is more suitable for AI parsing)
+npx skill4agent search <keyword> -j
 
-# 控制返回结果数量（建议使用-j，返回JSON格式）
-npx skill4agent search <关键词> -j -l <数量>
+# Control the number of returned results
+npx skill4agent search <keyword> -j -l <number>
 ```
 
-#### API 接口
+#### API Interface
 ```
-https://skill4agent.com/api/search?keyword=<关键词>
+https://skill4agent.com/api/search?keyword=<keyword>
 ```
 
-**参数说明**：
-- `keyword`（必填）：搜索关键词（支持中文、英文、中英混合）
-- `limit`（可选）：返回结果数量，默认 10，最大 50
+**Parameter Description**:
+- `keyword` (required): Search keyword (supports Chinese, English, mixed Chinese and English)
+- `limit` (optional): Number of returned results, default 10, maximum 50
 
-**重要返回字段**：
-- `skillId`：技能ID
-- `source`：技能源仓库
-- `skill_name`：技能名称
-- `description`：技能描述
-- `tags`：技能标签
-- `totalInstalls`：安装次数
-- `read_skill_url`：技能详情查阅地址
-- `download_zip_url`：技能下载地址
-- `translation`：翻译信息（原版语言、是否有翻译版、翻译版语言）
-- `script`：脚本检查信息（是否包含脚本、是否含有敏感代码、敏感代码具体位置）
+**Important Return Fields**:
+- `source`: Skill source repository (e.g., `vercel-labs-agent-skills`)
+- `skill_name`: Skill name
+- `description`: Skill description
+- `tags`: Skill tags
+- `totalInstalls`: Number of installations
+- `read_skill_url`: Skill detail URL
+- `download_zip_url`: Skill download URL
+- `translation`: Translation information
+- `script`: Script check results
 
-### 2. 查阅技能（read）
-**用途**：查看技能的详细信息和完整内容
+### 2. Read Skills (read)
+**Purpose**: View detailed information and complete content of skills
 
-#### CLI 命令（需要Node.js环境）
+#### CLI Command (Recommended)
 ```bash
-# 查阅原版内容（建议使用-j，返回JSON格式）
+# Read original content
 npx skill4agent read <source> <skill_name> -j
 
-# 查阅翻译版内容（建议使用-j，返回JSON格式）
+# Read translated content
 npx skill4agent read <source> <skill_name> --type translated -j
 ```
 
-#### API 接口
+#### API Interface
 ```
 https://skill4agent.com/api/skills/info?source=<source>&skill_name=<skill_name>
 ```
 
-**参数说明**：
-- `source`（必填）：技能源仓库（在搜索结果中获取）
-- `skill_name`（必填）：技能名称（在搜索结果中获取）
-- `type`（可选）：内容类型（`original`/`translated`），默认 `original`
+**Parameter Description**:
+- `source` (required): Skill source repository
+- `skill_name` (required): Skill name
+- `type` (optional): Content type (`original`/`translated`), default `original`
 
-**重要返回字段**：
-- `skillId`：技能ID
-- `source`：技能源仓库
-- `skill_name`：技能名称
-- `download_zip_url`：技能下载地址
-- `translation`：翻译信息（原版语言、是否有翻译版、翻译版语言）
-- `script`：脚本检查信息（是否包含脚本、是否含有敏感代码、敏感代码具体位置）
-- `content`：技能详细内容（SKILL.md的完整内容）
+**Important Return Fields**:
+- `skillId`: Unique skill identifier
+- `description`: Complete skill description
+- `content`: Detailed skill content
+- `translation`: Translation information
+- `script`: Script check results
 
-### 3. 安装技能（install）
-**用途**：将技能安装到本地项目
+### 3. Install Skills (install)
+**Purpose**: Install skills to local projects
 
-#### CLI 命令（需要Node.js环境）
+#### CLI Command
 ```bash
-# 安装原版技能
+# Install original skill
 npx skill4agent install <source> <skill_name>
 
-# 安装翻译版技能
+# Install translated skill
 npx skill4agent install <source> <skill_name> --type translated
 ```
 
-#### API 接口
+#### API Interface
 ```
 https://skill4agent.com/api/download/<skillId>?type=<type>
 ```
 
-**参数说明**：
-- `skillId`（必填）：技能ID（在搜索结果或查阅技能详情中获取）
-- `type`（可选）：内容类型（`original`/`translated`），默认 `original`
+**Parameter Description**:
+- `skillId` (required): Unique skill identifier
+- `type` (optional): Content type (`original`/`translated`), default `original`
 
-#### 安装说明
-- CLI命令：安装位置为当前目录下的 `.agents/skills/<skill_name>` 目录
-- API接口：下载 ZIP 文件后解压得到 `<skill_name>` 目录
-- 如需把skill安装到其他路径（如用户指定的或所在应用要求的路径），则自行转移到目标目录
+## Script Security Check
+For skills containing scripts:
+- `has_script`: `true` means the skill contains scripts
+- `script_check_result`:
+  - `safe`: Script is safe
+  - `need attention`: Contains sensitive code
+- `script_check_notes`: Specific locations of sensitive code, need to recheck after installation
 
-## 脚本安全检查
-通过返回的 `script` 字段，了解技能是否包含脚本并是否存在敏感代码。
+## Scenario-based Workflows
 
-- `has_script`：`true` 表示包含脚本
-- `script_check_result`：
-  - `safe`：脚本安全
-  - `need attention`：存在敏感代码
-- `script_check_notes`：敏感代码的具体位置，安装后需复检
+### Scenario 1: Only understand related skills
+- **Action**: Use search command
+- **Output**: Summarize search results and wait for user's further instructions
 
-注：对于包含脚本并存在敏感代码的技能，在安装前必须得到用户同意，安装后需对script_check_notes中列出的敏感代码所在位置并结合代码上下文进行复检，确保无恶意程序、获取用户私密信息、修改或删除本地文件、修改系统配置等风险。
+### Scenario 2: Find suitable skills to complete tasks
+1. **Search**: Use keywords to search for relevant skills
+2. **Filter**: Preliminary filter based on `description`, `tags`, `totalInstalls`
+3. **Read**: Use read command to get detailed information about candidate skills
+4. **Recommend**: Recommend the most suitable skills to users
 
-## 场景化工作流
+### Scenario 3: Search and install skills
+1. **Search**: Use keywords to search for relevant skills
+2. **Filter**: Filter suitable skills based on search results
+3. **Read** (Optional): Further understand skill details
+4. **Install**: Use install command to install skills
 
-### 场景 1：仅了解相关技能
-- **操作**：使用关键词搜索相关技能
-- **输出**：总结搜索结果，等待用户进一步指示
+## Search Optimization Suggestions
+When no results are found:
+1. **Optimize keywords**: Use more general or concise keywords
+2. **Switch language**:
+   - English search not found → Try Chinese or mixed keywords
+   - Chinese search not found → Try English or mixed keywords
+3. **Reduce limits**: Decrease the value of `limit` parameter
 
-### 场景 2：寻找合适技能完成任务
-1. **搜索**：使用关键词搜索相关技能
-2. **筛选**：根据 `description`、`tags`、`totalInstalls` 初步筛选
-3. **查阅**：对候选技能使用查阅命令获取详细信息，分析技能是否符合任务需求
-4. **推荐**：将最终合适的技能推荐给用户（如技能包含脚本并存在敏感代码，必须告知用户）
-
-### 场景 3：搜索并安装技能
-1. **搜索**：使用关键词搜索相关技能
-2. **筛选**：根据搜索结果筛选合适技能
-3. **查阅**（如需）：进一步了解技能详情，分析技能是否符合任务需求
-4. **安装**：使用安装命令或下载zip安装技能（对于包含脚本并存在敏感代码的技能，不能自行安装，必需得到用户同意后才可安装）
-5. **脚本安全复检**：如技能包含脚本并存在敏感代码，安装后需对script_check_notes中列出的敏感代码所在位置并结合代码上下文进行复检，确保无恶意程序、获取用户私密信息、修改或删除本地文件、修改系统配置等风险。
-
-## 搜索优化建议
-当搜索不出结果时：
-1. **优化关键词**：使用更通用或更精简的关键词
-2. **切换语言**：
-   - 英文搜不到 → 尝试中文或中英混合
-   - 中文搜不到 → 尝试英文或中英混合
-
-## 最佳实践
-- **JSON 格式**：搜索和查阅命令应该添加 `-j` 参数以返回json格式，方便解析
-- **语言版本选择**：根据用户的常用语言选择合适的版本（通过translation字段了解原版和翻译版的语言）
+## Best Practices
+- **JSON Format**: It is recommended to add `-j` parameter to search and read commands for better AI parsing
+- **Keyword Selection**: Use specific and relevant keywords to improve search accuracy
+- **Script Check**: For skills with `script_check_result` as `need attention`, recheck sensitive code after installation
+- **Language Version Selection**: Choose appropriate version based on user's preferred language (check original and translated languages via translation field)
+- **Script Security Recheck**: If the skill contains scripts with sensitive code, recheck the sensitive code locations listed in `script_check_notes` along with code context after installation to ensure no risks of malicious programs, accessing user private information, modifying or deleting local files, modifying system configurations, etc.
