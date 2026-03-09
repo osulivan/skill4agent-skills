@@ -1,13 +1,23 @@
 ---
 name: skill4agent
 description: 当需要搜索、查阅和安装在线技能库中的 skills 时使用此技能。
+required_binaries:
+  - name: node
+    description: Node.js 运行环境
+    version: ">=16.0.0"
+  - name: npm
+    description: Node.js 包管理器
+  - name: npx
+    description: Node.js 包执行器
 dependencies:
   - type: npm
     package: skill4agent
     command: npx skill4agent
+    provenance: https://www.npmjs.com/package/skill4agent
   - type: api
     endpoint: https://skill4agent.com/api
     description: 用于搜索、查阅和下载技能的外部 API
+    provenance: https://www.skill4agent.com
 ---
 
 ## 技能目的

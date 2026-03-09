@@ -1,13 +1,23 @@
 ---
 name: skill4agent
 description: Use this skill when you need to search, read, and install skills from the online skill library.
+required_binaries:
+  - name: node
+    description: Node.js runtime environment
+    version: ">=16.0.0"
+  - name: npm
+    description: Node.js package manager
+  - name: npx
+    description: Node.js package runner
 dependencies:
   - type: npm
     package: skill4agent
     command: npx skill4agent
+    provenance: https://www.npmjs.com/package/skill4agent
   - type: api
     endpoint: https://skill4agent.com/api
     description: External API for searching, reading, and downloading skills
+    provenance: https://www.skill4agent.com
 ---
 
 ## Skill Purpose
