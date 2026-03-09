@@ -1,27 +1,25 @@
 ---
 name: skill4agent
 description: 当需要搜索、查阅和安装在线技能库中的 skills 时使用此技能。
-required_binaries:
-  - name: node
-    description: Node.js 运行环境
-    version: ">=16.0.0"
-  - name: npm
-    description: Node.js 包管理器
-  - name: npx
-    description: Node.js 包执行器
-dependencies:
-  - type: npm
-    package: skill4agent
-    command: npx skill4agent
-    provenance: https://www.npmjs.com/package/skill4agent
-  - type: api
-    endpoint: https://skill4agent.com/api
-    description: 用于搜索、查阅和下载技能的外部 API
-    provenance: https://www.skill4agent.com
+requirements:
+  - node.js: ">=16.0.0"
+  - npm: "*"
+  - npx: "*"
+external_dependencies:
+  - npm: https://www.npmjs.com/package/skill4agent
+  - api: https://skill4agent.com/api
+source: https://www.skill4agent.com
 ---
 
 ## 技能目的
 使用skill4agent平台提供CLI命令或API接口，实现搜索技能、查阅技能详情、安装技能的完整工作流。
+
+## 使用选项
+此技能提供两种互斥的使用方式：
+1. **CLI 选项**：需要 Node.js 环境，使用 `npx skill4agent` 命令
+2. **API 选项**：无外部依赖，使用直接的 HTTPS 请求访问 skill4agent.com
+
+根据可用环境选择一种方式。如果有 Node.js 可用，优先使用 CLI 选项以获得便利。如果没有 Node.js，使用 API 选项。
 
 ## 三种核心操作
 

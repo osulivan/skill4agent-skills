@@ -1,27 +1,25 @@
 ---
 name: skill4agent
 description: Use this skill when you need to search, read, and install skills from the online skill library.
-required_binaries:
-  - name: node
-    description: Node.js runtime environment
-    version: ">=16.0.0"
-  - name: npm
-    description: Node.js package manager
-  - name: npx
-    description: Node.js package runner
-dependencies:
-  - type: npm
-    package: skill4agent
-    command: npx skill4agent
-    provenance: https://www.npmjs.com/package/skill4agent
-  - type: api
-    endpoint: https://skill4agent.com/api
-    description: External API for searching, reading, and downloading skills
-    provenance: https://www.skill4agent.com
+requirements:
+  - node.js: ">=16.0.0"
+  - npm: "*"
+  - npx: "*"
+external_dependencies:
+  - npm: https://www.npmjs.com/package/skill4agent
+  - api: https://skill4agent.com/api
+source: https://www.skill4agent.com
 ---
 
 ## Skill Purpose
 Use CLI commands or API interfaces provided by the skill4agent platform to implement a complete workflow for searching skills, reading skill details, and installing skills.
+
+## Usage Options
+This skill provides two mutually exclusive usage options:
+1. **CLI Option**: Requires Node.js environment, uses `npx skill4agent` commands
+2. **API Option**: No external dependencies, uses direct HTTPS requests to skill4agent.com
+
+Choose one option based on the available environment. If Node.js is available, prefer the CLI option for convenience. If Node.js is not available, use the API option.
 
 ## Three Core Operations
 
