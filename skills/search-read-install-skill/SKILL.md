@@ -1,5 +1,5 @@
 ---
-name: search-read-install-skill-zh
+name: search-read-install-skill
 description: Use this skill when you need to search, read, and install skills from the online skill library.
 ---
 

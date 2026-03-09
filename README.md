@@ -10,9 +10,9 @@ skill4agent 的技能集合。
 
 ## 这个仓库是什么？
 
-这是 skill4agent 的官方技能仓库。目前包含 `search-read-install-skill-zh` 技能，该技能提供npx命令和API调用两种方式进行搜索、查阅和安装skill。
+这是 skill4agent 的官方技能仓库。目前包含 `search-read-install-skill` 技能，该技能提供npx命令和API调用两种方式进行搜索、查阅和安装skill。
 
-### search-read-install-skill-zh 解决什么痛点？
+### search-read-install-skill 解决什么痛点？
 
 当中文用户让 AI Agent 搜索技能时，因对话中使用中文，AI 通常也默认使用中文关键词进行搜索，但目前大部分 skills 都是英文，导致无法搜索出结果。某些skill存在脚本代码，可能存在安全隐患。这个技能解决了这些问题：
 
