@@ -1,5 +1,5 @@
 ---
-name: search-read-install-skill
+name: skill4agent
 description: 当需要搜索、查阅和安装在线技能库中的 skills 时使用此技能。
 ---
 

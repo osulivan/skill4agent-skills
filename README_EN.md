@@ -10,19 +10,22 @@ A collection of skills for skill4agent.
 
 ## What is this repository?
 
-This is the official skill repository for skill4agent. Currently, it includes the `search-read-install-skill` skill, which provides two ways to search, read, and install skills:
+This is the official skill repository for skill4agent. Currently, it includes the `skill4agent` skill, which provides two ways to search, read, and install skills:
 - npx command (requires Node.js)
 - API call (no Node.js required)
 
 It supports searching skills in Chinese, making it more user-friendly for Chinese users.
 
-### What pain points does search-read-install-skill solve?
+### What pain points does skill4agent solve?
 
 When Chinese users ask AI Agent to search for skills, AI typically uses Chinese keywords since the conversation is in Chinese. However, most skills are in English, making it hard to find results with Chinese searches. Some skills contain scripts that may have security concerns. This skill solves these problems:
 
 1. **Chinese search support:** The skill4agent platform provides Chinese translations for English skills, enabling searches using Chinese keywords
 2. **Script security checks:** The skill4agent platform performs security checks on scripts within skills and records the specific locations of sensitive code
 3. **Security recheck:** This skill guides AI to recheck sensitive code, improving the safety of skill usage
+4. **Online read complete SKILL.md:** This skill supports AI to read the complete skill documentation online, Agent can read and use the skill documentation without downloading, suitable for scenarios where the skill is used once and then discarded
+
+
 
 If you want your AI Agent to help you search, read, filter, install, and check script security for skills, then this skill is for you.
 

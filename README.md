@@ -10,15 +10,16 @@ skill4agent 的技能集合。
 
 ## 这个仓库是什么？
 
-这是 skill4agent 的官方技能仓库。目前包含 `search-read-install-skill` 技能，该技能提供npx命令和API调用两种方式进行搜索、查阅和安装skill。
+这是 skill4agent 的官方技能仓库。目前包含 `skill4agent` 技能，该技能提供npx命令和API调用两种方式进行搜索、查阅和安装skill。
 
-### search-read-install-skill 解决什么痛点？
+### skill4agent 解决什么痛点？
 
 当中文用户让 AI Agent 搜索技能时，因对话中使用中文，AI 通常也默认使用中文关键词进行搜索，但目前大部分 skills 都是英文，导致无法搜索出结果。某些skill存在脚本代码，可能存在安全隐患。这个技能解决了这些问题：
 
 1. **中文搜索支持：** skill4agent 平台对英文 skill 进行了中文翻译，使其能通过中文关键词进行搜索
 2. **脚本安全检查：** skill4agent 平台对 skill 中存在的脚本进行代码安全检查，并记录敏感代码的具体位置
 3. **安全复检：** 此技能指导 AI 对敏感代码进行复检，提高 skill 使用的安全性
+4. **在线查完整SKILL.md：** 此技能支持 AI 在线查看完整的 skill 文档，Agent可即读即用，无需下载，适合用完即弃的场景
 
 如果你希望你的AI Agent 能帮你搜索、查阅、筛选、安装和检查脚本安全的技能，那么适合使用此技能。
 
