@@ -1,6 +1,13 @@
 ---
 name: skill4agent
 description: Use this skill when you need to search, read, and install skills from the online skill library.
+dependencies:
+  - type: npm
+    package: skill4agent
+    command: npx skill4agent
+  - type: api
+    endpoint: https://skill4agent.com/api
+    description: External API for searching, reading, and downloading skills
 ---
 
 ## Skill Purpose

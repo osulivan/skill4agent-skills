@@ -1,6 +1,13 @@
 ---
 name: skill4agent
 description: 当需要搜索、查阅和安装在线技能库中的 skills 时使用此技能。
+dependencies:
+  - type: npm
+    package: skill4agent
+    command: npx skill4agent
+  - type: api
+    endpoint: https://skill4agent.com/api
+    description: 用于搜索、查阅和下载技能的外部 API
 ---
 
 ## 技能目的
