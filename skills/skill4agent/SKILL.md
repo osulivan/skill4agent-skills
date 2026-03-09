@@ -1,10 +1,10 @@
 ---
 name: skill4agent
 description: Use this skill when you need to search, read, and install skills from the online skill library.
-requirements:
-  - node.js: ">=16.0.0"
-  - npm: "*"
-  - npx: "*"
+required_binaries:
+  - node.js
+  - npm
+  - npx
 external_dependencies:
   - npm: https://www.npmjs.com/package/skill4agent
   - api: https://skill4agent.com/api

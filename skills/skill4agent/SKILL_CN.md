@@ -1,10 +1,10 @@
 ---
 name: skill4agent
 description: 当需要搜索、查阅和安装在线技能库中的 skills 时使用此技能。
-requirements:
-  - node.js: ">=16.0.0"
-  - npm: "*"
-  - npx: "*"
+required_binaries:
+  - node.js
+  - npm
+  - npx
 external_dependencies:
   - npm: https://www.npmjs.com/package/skill4agent
   - api: https://skill4agent.com/api
@@ -15,7 +15,7 @@ source: https://www.skill4agent.com
 使用skill4agent平台提供CLI命令或API接口，实现搜索技能、查阅技能详情、安装技能的完整工作流。
 
 ## 使用选项
-此技能提供两种互斥的使用方式：
+此技能提供两种的使用方式：
 1. **CLI 选项**：需要 Node.js 环境，使用 `npx skill4agent` 命令
 2. **API 选项**：无外部依赖，使用直接的 HTTPS 请求访问 skill4agent.com
 
